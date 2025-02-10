@@ -6,7 +6,7 @@ A simple custom Lovelace card that displays **Latvian name days** for the curren
 
 
 
-![Screenshot from HA with Card](https://www.imghippo.com/i/OOvY2894HEY.png "screenshot")
+![Screenshot from HA with Card](https://i.imghippo.com/files/OOvY2894HEY.png "screenshot")
 
 ## Installation via HACS
 
