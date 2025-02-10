@@ -1,4 +1,4 @@
-# Latvian Namedays Card for Home Assistant
+# Latvian Namedays Card for Home Assistant (Latviešu vāŗda dienu integrācija Home Assistant)
 
 A simple custom Lovelace card that displays **Latvian name days** for the current date in Home Assistant. The card uses a bundled JSON file (`namedays.json`) containing the name day data, fetched automatically.
 
