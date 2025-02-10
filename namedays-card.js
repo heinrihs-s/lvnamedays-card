@@ -43,7 +43,7 @@ class NamedaysCard extends HTMLElement {
 
   loadData() {
     // Adjust the path as needed for your repository structure
-    fetch('/hacsfiles/lvnamedays-card/namedays.json')
+    fetch('/hacsfiles/namedays-card/namedays.json')
       .then(response => response.json())
       .then(data => {
         const today = new Date();
