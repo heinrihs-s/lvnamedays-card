@@ -1,7 +1,7 @@
 class NamedaysCard extends HTMLElement {
   constructor() {
     super();
-    // Attach a shadow root so our styles don't leak out.
+    // Use Shadow DOM to encapsulate styles
     this.attachShadow({ mode: "open" });
   }
 
@@ -15,7 +15,13 @@ class NamedaysCard extends HTMLElement {
   }
 
   render() {
-    // Define our card structure and styles using a template literal.
+    // Calculate today's date components
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    // Build the header text with the requested format
+    const headerText = `Šodien (${dd}.${mm}) vārda dienu svin:`;
+
     this.shadowRoot.innerHTML = `
       <style>
         ha-card {
@@ -54,9 +60,9 @@ class NamedaysCard extends HTMLElement {
       </style>
       <ha-card>
         <div class="card-header">
-          <!-- You can use an image or an SVG icon here -->
+          <!-- Icon can be changed or removed if desired -->
           <img class="icon" src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Calendar Icon" />
-          <h2>Today's Namedays</h2>
+          <h2>${headerText}</h2>
         </div>
         <div class="card-content">
           <p id="namedays">Loading namedays...</p>
@@ -66,16 +72,16 @@ class NamedaysCard extends HTMLElement {
   }
 
   loadData() {
-    // Note: Adjust the fetch path if your repository structure is different.
+    // Adjust the path if your repository structure is different
     fetch('/hacsfiles/namedays-card/namedays.json')
       .then(response => response.json())
       .then(data => {
         const today = new Date();
-        const mm = String(today.getMonth() + 1).padStart(2, '0');
         const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        // Our JSON keys are in "MM-DD" format
         const key = `${mm}-${dd}`;
-        const names = data[key] ? data[key].join(', ') : 'No namedays today';
-
+        const names = data[key] ? data[key].join(', ') : 'Nav vārda dienu';
         const namedaysEl = this.shadowRoot.getElementById('namedays');
         if (namedaysEl) {
           namedaysEl.innerHTML = `<span class="namedays-list">${names}</span>`;
