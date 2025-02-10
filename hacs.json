@@ -1,10 +1,10 @@
 {
   "name": "Namedays Card",
-  "description": "A Home Assistant Lovelace card that shows today's Latvian namedays from a JSON file.",
+  "description": "A Home Assistant Lovelace card that shows today's namedays from a JSON file.",
   "render_readme": true,
   "filename": "namedays-card.js",
   "version": "1.0.0",
-  "homeassistant": "2021.11.0",
+  "homeassistant": "2025.1.4",
   "domains": ["lovelace"],
   "iot_class": "cloud_push"
 }
