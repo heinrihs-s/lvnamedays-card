@@ -1,19 +1,16 @@
 {
   "name": "Namedays Card",
-  "description": "A Home Assistant Lovelace card that shows today's namedays from a JSON file.",
+  "content_in_root": true,
+  "filename": "namedays-card.js",
   "render_readme": true,
   "resources": [
     {
       "type": "module",
       "url": "/hacsfiles/namedays-card/namedays-card.js"
-    },
-    {
-      "type": "file",
-      "url": "/hacsfiles/namedays-card/namedays.json"
     }
   ],
   "version": "1.0.0",
-  "homeassistant": "2025.1.4",
+  "homeassistant": "2023.9.0",
   "domains": ["lovelace"],
-  "iot_class": "cloud_push"
+  "iot_class": "local"
 }
