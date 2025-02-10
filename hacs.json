@@ -1,16 +1,13 @@
 {
-  "name": "Namedays Card",
-  "content_in_root": true,
+  "name": "lvnamedays-card",
   "filename": "namedays-card.js",
+  "content_in_root": true,
+  "domains": ["lovelace"],
   "render_readme": true,
   "resources": [
     {
       "type": "module",
-      "url": "/hacsfiles/namedays-card/namedays-card.js"
+      "url": "/hacsfiles/lvnamedays-card/namedays-card.js"
     }
-  ],
-  "version": "1.0.0",
-  "homeassistant": "2023.9.0",
-  "domains": ["lovelace"],
-  "iot_class": "local"
+  ]
 }
