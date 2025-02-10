@@ -4,6 +4,10 @@ A simple custom Lovelace card that displays **Latvian name days** for the curren
 
 > **Note:** This card is designed specifically for Latvian name days.
 
+
+
+![Screenshot from HA with Card](https://www.imghippo.com/i/OOvY2894HEY.png "screenshot")
+
 ## Installation via HACS
 
 1. Open **HACS** in Home Assistant.
