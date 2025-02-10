@@ -1,28 +1,39 @@
 class NamedaysCard extends HTMLElement {
   setConfig(config) {
-    // You can use configuration options if needed.
     this.config = config;
   }
 
   connectedCallback() {
-    this.innerHTML = `<div id="content" style="padding:16px;">Loading namedays...</div>`;
+    this.render();
     this.loadData();
   }
 
+  render() {
+    this.innerHTML = `
+      <ha-card header="Namedays">
+        <div id="content" style="padding: 16px;">Loading namedays...</div>
+      </ha-card>
+    `;
+  }
+
   loadData() {
-    fetch('/local/namedays.json')
+    // IMPORTANT: fetch from the HACS path
+    fetch('/hacsfiles/namedays-card/namedays.json')
       .then(response => response.json())
       .then(data => {
         const today = new Date();
-        const month = ('0' + (today.getMonth() + 1)).slice(-2);
-        const day = ('0' + today.getDate()).slice(-2);
-        const key = `${month}-${day}`;
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        const key = `${mm}-${dd}`;
+
         const names = data[key] ? data[key].join(', ') : 'No namedays today';
-        this.querySelector('#content').innerHTML = `<h2>Today's Namedays</h2><p>${names}</p>`;
+        this.querySelector('#content').innerHTML = `
+          <p>Today's Namedays: <strong>${names}</strong></p>
+        `;
       })
-      .catch(error => {
+      .catch(err => {
+        console.error('Error fetching namedays:', err);
         this.querySelector('#content').innerHTML = `<p>Error loading namedays</p>`;
-        console.error('Error fetching namedays:', error);
       });
   }
 }
